@@ -75,7 +75,7 @@
 
 A API faz parte de um sistema de academia com as seguintes funcionalidades:
 
-### Etapa 1:
+### Etapa 1: (Concluída)
 ✅ ~~Implementado api-financeiro~~
 
 ---
@@ -83,15 +83,17 @@ A API faz parte de um sistema de academia com as seguintes funcionalidades:
 ### Etapa 2:
 ✅ Conexão com o banco de dados PostgreSQL na CloudService Railway
 
-✅ Implementado tabela de planos basica (sem relacionamento com outras tabelas)
+✅ Implementado tabela de planos básica (sem relacionamento com outras tabelas)
 
 ✅ Abaixo segue o diagrama ER da tabela de planos:
 
 <div align="center">
-<img src="images/er_financeiro.png" height="200px" />
+<img src="images/er_financeiro.png" height="300px" />
 </div>
 
-⏳ Dotenv será implementado em breve
+⏳ Será implementado em breve `environments`
+
+⏳ Será enviado em breve `dados de conexão com banco de dados`
 
 
 ---
