@@ -1,4 +1,3 @@
-
 <div align="center">
   <h2>
     Este repositório se refere ao Micro Serviço ( API-Financeiro ) 
@@ -7,6 +6,7 @@
     parte do <u>Projeto Academia - NT Forma</u> 💪
   </h2>
 </div>
+
 
 
 <div align="center">
@@ -75,9 +75,32 @@
 
 A API faz parte de um sistema de academia com as seguintes funcionalidades:
 
-- A ser implementado...
-- A ser implementado...
-- A ser implementado...
-- A ser implementado...
-- A ser implementado...
+### Etapa 1:
+✅ ~~Implementado api-financeiro~~
+
+---
+
+### Etapa 2:
+✅ Conexão com o banco de dados PostgreSQL na CloudService Railway
+
+✅ Implementado tabela de planos basica (sem relacionamento com outras tabelas)
+
+✅ Abaixo segue o diagrama ER da tabela de planos:
+
+<div align="center">
+<img src="images/er_financeiro.png" height="200px" />
+</div>
+
+⏳ Dotenv será implementado em breve
+
+
+---
+
+### Etapa 3:
+✅ A ser implementado...
+
+✅ A ser implementado...
+
+
+---
 
