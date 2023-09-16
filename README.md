@@ -83,7 +83,7 @@ A API faz parte de um sistema de academia com as seguintes funcionalidades:
 ### Etapa 2:
 ✅ Conexão com o banco de dados PostgreSQL na CloudService Railway
 
-✅ Implementado tabela de planos básica (sem relacionamento com outras tabelas)
+✅ Implementado tabela financeiro básica (sem relacionamento com outras tabelas)
 
 ✅ Abaixo segue o diagrama ER da tabela de planos:
 
