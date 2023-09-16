@@ -85,7 +85,7 @@ A API faz parte de um sistema de academia com as seguintes funcionalidades:
 
 ✅ Implementado tabela financeiro básica (sem relacionamento com outras tabelas)
 
-✅ Abaixo segue o diagrama ER da tabela de planos:
+✅ Abaixo segue o diagrama ER da tabela financeiro:
 
 <div align="center">
 <img src="images/er_financeiro.png" height="300px" />
