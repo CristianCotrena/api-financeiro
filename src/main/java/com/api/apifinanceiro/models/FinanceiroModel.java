@@ -35,8 +35,16 @@ public class FinanceiroModel implements Serializable {
   @Column(nullable = false, columnDefinition = "int default 1")
   private int status;
 
-  public FinanceiroModel(UUID id, UUID idFuncionario, CargosEnum cargo, String dataAdmissao,
-      double salario, String clt, String matricula, int status) {
+  public FinanceiroModel(
+      UUID id,
+      UUID idFuncionario,
+      CargosEnum cargo,
+      String dataAdmissao,
+      double salario,
+      String clt,
+      String matricula,
+      int status
+  ) {
     this.id = id;
     this.idFuncionario = idFuncionario;
     this.cargo = cargo;
