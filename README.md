@@ -91,9 +91,9 @@ A API faz parte de um sistema de academia com as seguintes funcionalidades:
 <img src="images/er_financeiro.png" height="300px" />
 </div>
 
-⏳ Será implementado em breve `environments`
+✅ Implementado `environments`
 
-⏳ Será enviado em breve `dados de conexão com banco de dados`
+✅ Implementado `dados de conexão com banco de dados`
 
 
 ---

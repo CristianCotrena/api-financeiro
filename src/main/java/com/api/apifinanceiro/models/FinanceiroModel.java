@@ -1,11 +1,7 @@
 package com.api.apifinanceiro.models;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import com.api.apifinanceiro.models.enums.CargosEnum;
+import jakarta.persistence.*;
 import java.io.Serializable;
 import java.util.UUID;
 
@@ -22,7 +18,7 @@ public class FinanceiroModel implements Serializable {
   private UUID idFuncionario;
 
   @Column(nullable = false)
-  private String cargo;
+  private CargosEnum cargo;
 
   @Column(nullable = false)
   private String dataAdmissao;
@@ -39,16 +35,8 @@ public class FinanceiroModel implements Serializable {
   @Column(nullable = false, columnDefinition = "int default 1")
   private int status;
 
-  public FinanceiroModel(
-      UUID id,
-      UUID idFuncionario,
-      String cargo,
-      String dataAdmissao,
-      double salario,
-      String clt,
-      String matricula,
-      int status
-  ) {
+  public FinanceiroModel(UUID id, UUID idFuncionario, CargosEnum cargo, String dataAdmissao,
+      double salario, String clt, String matricula, int status) {
     this.id = id;
     this.idFuncionario = idFuncionario;
     this.cargo = cargo;
@@ -78,11 +66,11 @@ public class FinanceiroModel implements Serializable {
     this.idFuncionario = idFuncionario;
   }
 
-  public String getCargo() {
+  public CargosEnum getCargo() {
     return cargo;
   }
 
-  public void setCargo(String cargo) {
+  public void setCargo(CargosEnum cargo) {
     this.cargo = cargo;
   }
 
