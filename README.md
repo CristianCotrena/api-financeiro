@@ -67,6 +67,7 @@
     <img src="https://github.com/PFonsecaFV/PFonsecaFV/blob/main/src/icons/ic_postgre.svg" width="60" fill="none" />
     <img src="https://github.com/PFonsecaFV/PFonsecaFV/blob/main/src/icons/ic_postman.svg" width="60" fill="none" />
     <img src="https://github.com/PFonsecaFV/PFonsecaFV/blob/main/src/icons/ic_railway.svg" width="60" fill="none" />
+    <img src="https://github.com/PFonsecaFV/PFonsecaFV/blob/main/src/icons/ic_swagger.svg" width="60" fill="none" />
     </a>
   </p>
 </div>
@@ -80,22 +81,26 @@ A API faz parte de um sistema de academia com as seguintes funcionalidades:
 
 ---
 
-### Etapa 2:
-✅ Conexão com o banco de dados PostgreSQL na CloudService Railway
+### Etapa 2: (Concluída)
+✅ ~~Conexão com o banco de dados PostgreSQL na CloudService Railway~~
 
-✅ Implementado tabela `financeiro` básica (sem relacionamento com outras tabelas)
+✅ ~~Implementado tabela `financeiro` básica (sem relacionamento com outras tabelas)~~
 
-✅ Implementado `environments`
+✅ ~~Implementado `environments`~~
 
-✅ Implementado `dados de conexão com banco de dados`
+✅ ~~Implementado `dados de conexão com banco de dados`~~
 
 
 ---
 
 ### Etapa 3:
-✅ A ser implementado...
+✅ Padronização de retorno da API
 
-✅ A ser implementado...
+✅ Atualizado `environments` com escopo global entre IDEs
+
+⏳ Adicionar Regras de negócio
+
+⏳ Implementado e configurando ambiente Dock Swagger
 
 
 ---
