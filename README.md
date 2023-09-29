@@ -98,10 +98,13 @@ A API faz parte de um sistema de academia com as seguintes funcionalidades:
 
 ✅ Atualizado `environments` com escopo global entre IDEs
 
-⏳ Adicionar Regras de negócio
+✅ Adicionar Regras de negócio
 
-⏳ Implementado e configurando ambiente Dock Swagger
+✅ Configurado e implementado Doc Swagger
 
+✅ Adicionado coleção POSTMAN
+
+⏳ Implementado Testes
 
 ---
 

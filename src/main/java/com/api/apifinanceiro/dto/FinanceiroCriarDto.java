@@ -1,43 +1,50 @@
-package com.api.apifinanceiro.models;
+package com.api.apifinanceiro.dto;
 
 import com.api.apifinanceiro.models.enums.CargosEnum;
-import jakarta.persistence.*;
-import java.io.Serializable;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.time.ZonedDateTime;
 import java.util.UUID;
 
-@Entity
-@Table(name = "FINANCEIRO")
-public class FinanceiroModel implements Serializable {
+public class FinanceiroCriarDto {
 
-  private static final long serialVersionUID = 1L;
-  @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
-  private UUID id;
-
-  @Column(nullable = false)
+  @Schema(
+      description = "Id do funcionário",
+      example = "123e4567-e89b-12d3-a456-426614174000"
+  )
   private UUID idFuncionario;
-
-  @Column(nullable = false)
+  @Schema(
+      description = "Cargo do funcionário",
+      example = "INSTRUTOR"
+  )
   private CargosEnum cargo;
-
-  @Column(nullable = false)
+  @Schema(
+      description = "Data de admissão do funcionário",
+      example = "2021-01-01T00:00:00.000Z"
+  )
   private ZonedDateTime dataAdmissao;
-
-  @Column(nullable = false)
+  @Schema(
+      description = "Salário do funcionário",
+      example = "1000.00"
+  )
   private Double salario;
-
-  @Column
+  @Schema(
+      description = "Carteira de trabalho do funcionário",
+      example = "123456789"
+  )
   private String clt;
-
-  @Column
+  @Schema(
+      description = "Matrícula",
+      example = "123456789"
+  )
   private String matricula;
-
-  @Column
+  @Schema(
+      description = "Status do funcionário",
+      example = "1"
+  )
   private Integer status;
 
-  public FinanceiroModel(
-      UUID id,
+
+  public FinanceiroCriarDto(
       UUID idFuncionario,
       CargosEnum cargo,
       ZonedDateTime dataAdmissao,
@@ -46,7 +53,6 @@ public class FinanceiroModel implements Serializable {
       String matricula,
       Integer status
   ) {
-    this.id = id;
     this.idFuncionario = idFuncionario;
     this.cargo = cargo;
     this.dataAdmissao = dataAdmissao;
@@ -54,18 +60,6 @@ public class FinanceiroModel implements Serializable {
     this.clt = clt;
     this.matricula = matricula;
     this.status = status;
-  }
-
-  public FinanceiroModel() {
-
-  }
-
-  public UUID getId() {
-    return id;
-  }
-
-  public void setId(UUID id) {
-    this.id = id;
   }
 
   public UUID getIdFuncionario() {

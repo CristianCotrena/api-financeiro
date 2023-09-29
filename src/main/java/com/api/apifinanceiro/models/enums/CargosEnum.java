@@ -1,9 +1,10 @@
 package com.api.apifinanceiro.models.enums;
 
 public enum CargosEnum {
-  INSTRUTOR("1 - INSTRUTOR"),
-  RECEPCIONISTA("2 - RECEPCIONISTA"),
-  SERVICOS_GERAIS("3 - SERVIÇOS GERAIS");
+  INSTRUTOR("INSTRUTOR"),
+  RECEPCIONISTA("RECEPCIONISTA"),
+  SERVICOS_GERAIS("SERVICOS_GERAIS"),
+  FINANCEIRO("FINANCEIRO");
 
   String cargoEscolhido;
 
@@ -11,7 +12,7 @@ public enum CargosEnum {
     this.cargoEscolhido = cargoEscolhido;
   }
 
-  public static CargosEnum cargoEscolhidoSelect(String cargoEscolhido) {
+  public static CargosEnum cargoSelecionado(String cargoEscolhido) {
     CargosEnum[] var1 = values();
     int var2 = var1.length;
 
