@@ -1,7 +1,7 @@
-package com.api.apifinanceiro.controllers;
+package com.api.apifinanceiro.controllers.v1;
 
 import com.api.apifinanceiro.base.dtos.BaseDto;
-import com.api.apifinanceiro.dto.FinanceiroCriarDto;
+import com.api.apifinanceiro.entities.dtos.FinanceiroCriarDto;
 import com.api.apifinanceiro.services.v1.FinanceiroService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;

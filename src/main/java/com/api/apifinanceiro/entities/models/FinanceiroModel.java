@@ -1,50 +1,43 @@
-package com.api.apifinanceiro.dto;
+package com.api.apifinanceiro.entities.models;
 
-import com.api.apifinanceiro.models.enums.CargosEnum;
-import io.swagger.v3.oas.annotations.media.Schema;
+import com.api.apifinanceiro.entities.enums.CargosEnum;
+import jakarta.persistence.*;
+import java.io.Serializable;
 import java.time.ZonedDateTime;
 import java.util.UUID;
 
-public class FinanceiroCriarDto {
+@Entity
+@Table(name = "FINANCEIRO")
+public class FinanceiroModel implements Serializable {
 
-  @Schema(
-      description = "Id do funcionário",
-      example = "123e4567-e89b-12d3-a456-426614174000"
-  )
+  private static final long serialVersionUID = 1L;
+  @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  private UUID id;
+
+  @Column(nullable = false)
   private UUID idFuncionario;
-  @Schema(
-      description = "Cargo do funcionário",
-      example = "INSTRUTOR"
-  )
+
+  @Column(nullable = false)
   private CargosEnum cargo;
-  @Schema(
-      description = "Data de admissão do funcionário",
-      example = "2021-01-01T00:00:00.000Z"
-  )
+
+  @Column(nullable = false)
   private ZonedDateTime dataAdmissao;
-  @Schema(
-      description = "Salário do funcionário",
-      example = "1000.00"
-  )
+
+  @Column(nullable = false)
   private Double salario;
-  @Schema(
-      description = "Carteira de trabalho do funcionário",
-      example = "123456789"
-  )
+
+  @Column
   private String clt;
-  @Schema(
-      description = "Matrícula",
-      example = "123456789"
-  )
+
+  @Column
   private String matricula;
-  @Schema(
-      description = "Status do funcionário",
-      example = "1"
-  )
+
+  @Column
   private Integer status;
 
-
-  public FinanceiroCriarDto(
+  public FinanceiroModel(
+      UUID id,
       UUID idFuncionario,
       CargosEnum cargo,
       ZonedDateTime dataAdmissao,
@@ -53,6 +46,7 @@ public class FinanceiroCriarDto {
       String matricula,
       Integer status
   ) {
+    this.id = id;
     this.idFuncionario = idFuncionario;
     this.cargo = cargo;
     this.dataAdmissao = dataAdmissao;
@@ -60,6 +54,18 @@ public class FinanceiroCriarDto {
     this.clt = clt;
     this.matricula = matricula;
     this.status = status;
+  }
+
+  public FinanceiroModel() {
+
+  }
+
+  public UUID getId() {
+    return id;
+  }
+
+  public void setId(UUID id) {
+    this.id = id;
   }
 
   public UUID getIdFuncionario() {

@@ -1,4 +1,4 @@
-package com.api.apifinanceiro.dto;
+package com.api.apifinanceiro.entities.dtos;
 
 import java.io.Serializable;
 

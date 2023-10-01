@@ -1,4 +1,4 @@
-package com.api.apifinanceiro.models.enums;
+package com.api.apifinanceiro.entities.enums;
 
 public enum CargosEnum {
   INSTRUTOR("INSTRUTOR"),

@@ -1,6 +1,6 @@
 package com.api.apifinanceiro.repositories;
 
-import com.api.apifinanceiro.models.FinanceiroModel;
+import com.api.apifinanceiro.entities.models.FinanceiroModel;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

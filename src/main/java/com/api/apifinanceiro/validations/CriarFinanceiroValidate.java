@@ -2,8 +2,8 @@ package com.api.apifinanceiro.validations;
 
 import com.api.apifinanceiro.base.dtos.BaseErrorDto;
 import com.api.apifinanceiro.constants.MensagensErros;
-import com.api.apifinanceiro.dto.FinanceiroCriarDto;
-import com.api.apifinanceiro.models.enums.CargosEnum;
+import com.api.apifinanceiro.entities.dtos.FinanceiroCriarDto;
+import com.api.apifinanceiro.entities.enums.CargosEnum;
 import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.List;

@@ -3,7 +3,7 @@ package com.api.apifinanceiro;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
-import com.api.apifinanceiro.models.enums.CargosEnum;
+import com.api.apifinanceiro.entities.enums.CargosEnum;
 import java.lang.reflect.Field;
 import java.time.ZonedDateTime;
 import java.util.Arrays;
@@ -15,16 +15,17 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-public class FinanceiroCriarDtoTest {
+@DisplayName("FinanceiroDto - Testes")
+public class FinanceiroDtoTest {
 
   @Test
-  @DisplayName("1 - Teste de criação de FinanceiroDto")
+  @DisplayName("01 - DTO - Criação de FinanceiroDto e FinaceiroCriarDto")
   void testDtoClasses() {
     Map<String, Map<String, String>> expectedMap = Map.of(
-        "com.api.apifinanceiro.dto.FinanceiroDto", Map.of(
+        "com.api.apifinanceiro.entities.dtos.FinanceiroDto", Map.of(
             "id", String.class.getName()
         ),
-        "com.api.apifinanceiro.dto.FinanceiroCriarDto", Map.of(
+        "com.api.apifinanceiro.entities.dtos.FinanceiroCriarDto", Map.of(
             "idFuncionario", UUID.class.getName(),
             "cargo", CargosEnum.class.getName(),
             "dataAdmissao", ZonedDateTime.class.getName(),
