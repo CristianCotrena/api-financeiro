@@ -106,5 +106,9 @@ A API faz parte de um sistema de academia com as seguintes funcionalidades:
 
 ✅ Testes implementados
 
+✅ CRUD iniciado:
+
+- Implementado método `POST`
+
 ---
 
