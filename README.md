@@ -102,9 +102,19 @@ A API faz parte de um sistema de academia com as seguintes funcionalidades:
 
 ✅ Configurado e implementado Doc Swagger
 
-✅ Adicionado coleção POSTMAN
+✅ Para testar as requisições no Swagger entre no link abaixo:
 
-✅ Testes implementados
+```html
+http://localhost:8080/swagger-ui/index.html#/
+```
+
+✅ Adicionado coleção inicial do POSTMAN que se encontra no diretório:
+
+```source-json
+/src/main/java/com/api/apifinanceiro/utils/postman/
+```
+
+✅ Implementados Testes Unitários
 
 ✅ CRUD iniciado:
 
