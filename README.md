@@ -104,7 +104,7 @@ A API faz parte de um sistema de academia com as seguintes funcionalidades:
 
 ✅ Adicionado coleção POSTMAN
 
-⏳ Implementado Testes
+✅ Testes implementados
 
 ---
 

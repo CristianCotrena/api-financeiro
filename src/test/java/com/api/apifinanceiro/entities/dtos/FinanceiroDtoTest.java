@@ -1,4 +1,4 @@
-package com.api.apifinanceiro;
+package com.api.apifinanceiro.entities.dtos;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;

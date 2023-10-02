@@ -33,6 +33,15 @@ public class FinanceiroService {
     if (erros.size() > 0) {
       return new ResponseErrorBuilder(HttpStatus.BAD_REQUEST, erros).get();
     }
+    // preciso criar uma condição para verificar se o idFuncionario cadastrado no financeiro já foi
+    // cadastrado no banco de dados da nuvem
+    if (financeiroRepository.findByIdFuncionario(novoFinanceiroDto.getIdFuncionario()).isPresent()) {
+      return new ResponseErrorBuilder(
+          HttpStatus.BAD_REQUEST,
+          "Funcionário já cadastrado no financeiro!"
+      ).get();
+    }
+
     FinanceiroModel novoFinanceiro = new FinanceiroModel();
 
     novoFinanceiro.setIdFuncionario(novoFinanceiroDto.getIdFuncionario());
