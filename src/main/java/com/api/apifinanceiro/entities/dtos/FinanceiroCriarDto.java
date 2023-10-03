@@ -43,9 +43,15 @@ public class FinanceiroCriarDto {
   )
   private Integer status;
 
-
   public FinanceiroCriarDto(
-      ) {
+      UUID idFuncionario,
+      CargosEnum cargo,
+      ZonedDateTime dataAdmissao,
+      Double salario,
+      String clt,
+      String matricula,
+      Integer status
+  ) {
     this.idFuncionario = idFuncionario;
     this.cargo = cargo;
     this.dataAdmissao = dataAdmissao;
@@ -55,7 +61,7 @@ public class FinanceiroCriarDto {
     this.status = status;
   }
 
-  public FinanceiroCriarDto(String uuid, String instrutor, String s, double salario, String number, String number1, int status) {
+  public FinanceiroCriarDto() {
   }
 
   public UUID getIdFuncionario() {
