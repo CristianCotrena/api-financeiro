@@ -1,8 +1,9 @@
-package com.api.apifinanceiro.models;
+package com.api.apifinanceiro.entities.models;
 
-import com.api.apifinanceiro.models.enums.CargosEnum;
+import com.api.apifinanceiro.entities.enums.CargosEnum;
 import jakarta.persistence.*;
 import java.io.Serializable;
+import java.time.ZonedDateTime;
 import java.util.UUID;
 
 @Entity
@@ -21,29 +22,29 @@ public class FinanceiroModel implements Serializable {
   private CargosEnum cargo;
 
   @Column(nullable = false)
-  private String dataAdmissao;
+  private ZonedDateTime dataAdmissao;
 
   @Column(nullable = false)
-  private double salario;
+  private Double salario;
 
-  @Column(nullable = false)
+  @Column
   private String clt;
 
-  @Column(nullable = false)
+  @Column
   private String matricula;
 
-  @Column(nullable = false, columnDefinition = "int default 1")
-  private int status;
+  @Column
+  private Integer status;
 
   public FinanceiroModel(
       UUID id,
       UUID idFuncionario,
       CargosEnum cargo,
-      String dataAdmissao,
-      double salario,
+      ZonedDateTime dataAdmissao,
+      Double salario,
       String clt,
       String matricula,
-      int status
+      Integer status
   ) {
     this.id = id;
     this.idFuncionario = idFuncionario;
@@ -56,6 +57,7 @@ public class FinanceiroModel implements Serializable {
   }
 
   public FinanceiroModel() {
+
   }
 
   public UUID getId() {
@@ -82,19 +84,19 @@ public class FinanceiroModel implements Serializable {
     this.cargo = cargo;
   }
 
-  public String getDataAdmissao() {
+  public ZonedDateTime getDataAdmissao() {
     return dataAdmissao;
   }
 
-  public void setDataAdmissao(String dataAdmissao) {
+  public void setDataAdmissao(ZonedDateTime dataAdmissao) {
     this.dataAdmissao = dataAdmissao;
   }
 
-  public double getSalario() {
+  public Double getSalario() {
     return salario;
   }
 
-  public void setSalario(double salario) {
+  public void setSalario(Double salario) {
     this.salario = salario;
   }
 
@@ -114,11 +116,11 @@ public class FinanceiroModel implements Serializable {
     this.matricula = matricula;
   }
 
-  public int getStatus() {
+  public Integer getStatus() {
     return status;
   }
 
-  public void setStatus(int status) {
+  public void setStatus(Integer status) {
     this.status = status;
   }
 }
