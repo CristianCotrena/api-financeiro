@@ -3,13 +3,15 @@ package com.api.apifinanceiro.services.v1;
 import com.api.apifinanceiro.base.dtos.BaseErrorDto;
 import com.api.apifinanceiro.builders.ResponseErrorBuilder;
 import com.api.apifinanceiro.builders.ResponseSuccessBuilder;
-import com.api.apifinanceiro.entities.dtos.FinanceiroCriarDto;
-import com.api.apifinanceiro.entities.dtos.FinanceiroDto;
+import com.api.apifinanceiro.entities.dtos.FinanceiroRequestDto;
+import com.api.apifinanceiro.entities.dtos.FinanceiroResponseDto;
 import com.api.apifinanceiro.entities.models.FinanceiroModel;
 import com.api.apifinanceiro.repositories.FinanceiroRepository;
+import com.api.apifinanceiro.transform.FinanceiroModelTransform;
 import com.api.apifinanceiro.validations.CriarFinanceiroValidate;
 import jakarta.transaction.Transactional;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -27,36 +29,27 @@ public class FinanceiroService {
   }
 
   @Transactional
-  public ResponseEntity criarFinanceiro(FinanceiroCriarDto novoFinanceiroDto) {
+  public ResponseEntity criarFinanceiro(FinanceiroRequestDto novoFinanceiroDto) {
     List<BaseErrorDto> erros = new CriarFinanceiroValidate().validar(novoFinanceiroDto);
 
     if (erros.size() > 0) {
       return new ResponseErrorBuilder(HttpStatus.BAD_REQUEST, erros).get();
     }
 
-    if (financeiroRepository.findByIdFuncionario(novoFinanceiroDto.getIdFuncionario()).isPresent()) {
-      return new ResponseErrorBuilder(
-          HttpStatus.BAD_REQUEST,
-          "Funcionário já cadastrado no financeiro!"
-      ).get();
+    Optional<Boolean> existsByIdFuncionario = financeiroRepository.existsByIdFuncionario(
+        novoFinanceiroDto.getIdFuncionario());
+
+    if (existsByIdFuncionario.isPresent() && existsByIdFuncionario.get()) {
+      return new ResponseErrorBuilder(HttpStatus.BAD_REQUEST,
+          "Funcionário já cadastrado no financeiro!").get();
     }
 
-    FinanceiroModel novoFinanceiro = new FinanceiroModel();
-
-    novoFinanceiro.setIdFuncionario(novoFinanceiroDto.getIdFuncionario());
-    novoFinanceiro.setCargo(novoFinanceiroDto.getCargo());
-    novoFinanceiro.setDataAdmissao(novoFinanceiroDto.getDataAdmissao());
-    novoFinanceiro.setSalario(novoFinanceiroDto.getSalario());
-    novoFinanceiro.setClt(novoFinanceiroDto.getClt());
-    novoFinanceiro.setMatricula(novoFinanceiroDto.getMatricula());
-    novoFinanceiro.setStatus(1);
+    FinanceiroModel novoFinanceiro;
+    novoFinanceiro = new FinanceiroModelTransform().transformarFinanceiroModel(novoFinanceiroDto);
 
     UUID idFinanceiro = financeiroRepository.save(novoFinanceiro).getId();
 
-    return new ResponseSuccessBuilder<FinanceiroDto>(
-        HttpStatus.CREATED,
-        new FinanceiroDto(idFinanceiro.toString()),
-        "Financeiro criado com sucesso!"
-    ).get();
+    return new ResponseSuccessBuilder<FinanceiroResponseDto>(HttpStatus.CREATED,
+        new FinanceiroResponseDto(idFinanceiro.toString()), "Financeiro criado com sucesso!").get();
   }
 }

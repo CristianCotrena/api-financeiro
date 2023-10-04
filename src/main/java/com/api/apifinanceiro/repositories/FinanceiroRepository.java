@@ -9,6 +9,6 @@ import java.util.UUID;
 
 @Repository
 public interface FinanceiroRepository extends JpaRepository<FinanceiroModel, UUID> {
-  Optional<FinanceiroModel> findByIdFuncionario(UUID idFuncionario);
+  Optional<Boolean> existsByIdFuncionario(UUID idFuncionario);
 
 }

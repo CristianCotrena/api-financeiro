@@ -5,7 +5,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import java.time.ZonedDateTime;
 import java.util.UUID;
 
-public class FinanceiroCriarDto {
+public class FinanceiroRequestDto {
 
   @Schema(
       description = "Id do funcionário",
@@ -43,7 +43,7 @@ public class FinanceiroCriarDto {
   )
   private Integer status;
 
-  public FinanceiroCriarDto(
+  public FinanceiroRequestDto(
       UUID idFuncionario,
       CargosEnum cargo,
       ZonedDateTime dataAdmissao,
@@ -61,7 +61,7 @@ public class FinanceiroCriarDto {
     this.status = status;
   }
 
-  public FinanceiroCriarDto() {
+  public FinanceiroRequestDto() {
   }
 
   public UUID getIdFuncionario() {

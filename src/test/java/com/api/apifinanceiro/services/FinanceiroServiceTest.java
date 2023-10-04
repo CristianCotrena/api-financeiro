@@ -6,8 +6,8 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 import com.api.apifinanceiro.base.dtos.BaseDto;
-import com.api.apifinanceiro.entities.dtos.FinanceiroCriarDto;
-import com.api.apifinanceiro.entities.dtos.FinanceiroDto;
+import com.api.apifinanceiro.entities.dtos.FinanceiroRequestDto;
+import com.api.apifinanceiro.entities.dtos.FinanceiroResponseDto;
 import com.api.apifinanceiro.entities.enums.CargosEnum;
 import com.api.apifinanceiro.entities.models.FinanceiroModel;
 import com.api.apifinanceiro.repositories.FinanceiroRepository;
@@ -32,7 +32,7 @@ public class FinanceiroServiceTest {
 
   @Autowired
   private FinanceiroService financeiroService;
-  private FinanceiroCriarDto dtoFinanceiro;
+  private FinanceiroRequestDto dtoFinanceiro;
   private FinanceiroModel financeiro;
 
   @BeforeEach
@@ -40,7 +40,7 @@ public class FinanceiroServiceTest {
     financeiroRepository = mock(FinanceiroRepository.class);
     financeiroService = new FinanceiroService(financeiroRepository);
 
-    dtoFinanceiro = new FinanceiroCriarDto();
+    dtoFinanceiro = new FinanceiroRequestDto();
     dtoFinanceiro.setIdFuncionario(UUID.fromString("123e4567-e89b-12d3-a456-426614174000"));
     dtoFinanceiro.setCargo(CargosEnum.valueOf("INSTRUTOR"));
     dtoFinanceiro.setDataAdmissao(ZonedDateTime.parse("2021-01-01T00:00:00.000Z"));
@@ -60,11 +60,12 @@ public class FinanceiroServiceTest {
     FinanceiroModel financeiro = new FinanceiroModel();
     financeiro.setId(validUUID);
 
-    when(financeiroRepository.findById(any(UUID.class))).thenReturn(Optional.empty());
+    when(financeiroRepository.existsByIdFuncionario(any(UUID.class))).thenReturn(
+        Optional.of(false));
     financeiro.setIdFuncionario(validUUID);
     when(financeiroRepository.save(any(FinanceiroModel.class))).thenReturn(financeiro);
 
-    BaseDto<FinanceiroDto> responseEntity = (BaseDto<FinanceiroDto>)
+    BaseDto<FinanceiroResponseDto> responseEntity = (BaseDto<FinanceiroResponseDto>)
         financeiroService.criarFinanceiro(dtoFinanceiro).getBody();
 
     assertEquals(HttpStatus.CREATED.value(), responseEntity.getResultado().getStatus());
@@ -79,11 +80,10 @@ public class FinanceiroServiceTest {
     FinanceiroModel financeiro = new FinanceiroModel();
     financeiro.setId(validUUID);
 
-    when(financeiroRepository.findByIdFuncionario(any(UUID.class))).thenReturn(
-        Optional.of(financeiro));
+    when(financeiroRepository.existsByIdFuncionario(any(UUID.class))).thenReturn(Optional.of(true));
     when(financeiroRepository.save(any(FinanceiroModel.class))).thenReturn(financeiro);
 
-    BaseDto<FinanceiroDto> responseEntity = (BaseDto<FinanceiroDto>)
+    BaseDto<FinanceiroResponseDto> responseEntity = (BaseDto<FinanceiroResponseDto>)
         financeiroService.criarFinanceiro(dtoFinanceiro).getBody();
 
     assertEquals(HttpStatus.BAD_REQUEST.value(), responseEntity.getResultado().getStatus());
@@ -102,11 +102,11 @@ public class FinanceiroServiceTest {
 
     dtoFinanceiro.setCargo(CargosEnum.valueOf(cargo));
 
-    when(financeiroRepository.findByIdFuncionario(any(UUID.class))).thenReturn(
-        Optional.empty());
+    when(financeiroRepository.existsByIdFuncionario(any(UUID.class))).thenReturn(
+        Optional.of(false));
     when(financeiroRepository.save(any(FinanceiroModel.class))).thenReturn(financeiro);
 
-    BaseDto<FinanceiroDto> responseEntity = (BaseDto<FinanceiroDto>)
+    BaseDto<FinanceiroResponseDto> responseEntity = (BaseDto<FinanceiroResponseDto>)
         financeiroService.criarFinanceiro(dtoFinanceiro).getBody();
 
     assertEquals(HttpStatus.CREATED.value(), responseEntity.getResultado().getStatus());
@@ -119,11 +119,11 @@ public class FinanceiroServiceTest {
   public void testarCriarFinanceiroSalarioInvalido() {
     dtoFinanceiro.setSalario(null);
 
-    when(financeiroRepository.findByIdFuncionario(any(UUID.class))).thenReturn(
-        Optional.empty());
+    when(financeiroRepository.existsByIdFuncionario(any(UUID.class))).thenReturn(
+        Optional.of(false));
     when(financeiroRepository.save(any(FinanceiroModel.class))).thenReturn(financeiro);
 
-    BaseDto<FinanceiroDto> responseEntity = (BaseDto<FinanceiroDto>)
+    BaseDto<FinanceiroResponseDto> responseEntity = (BaseDto<FinanceiroResponseDto>)
         financeiroService.criarFinanceiro(dtoFinanceiro).getBody();
 
     assertEquals(HttpStatus.BAD_REQUEST.value(), responseEntity.getResultado().getStatus());
@@ -136,11 +136,11 @@ public class FinanceiroServiceTest {
   public void testarCriarFinanceiroDataAdmissaoInvalido() {
     dtoFinanceiro.setDataAdmissao(null);
 
-    when(financeiroRepository.findByIdFuncionario(any(UUID.class))).thenReturn(
-        Optional.empty());
+    when(financeiroRepository.existsByIdFuncionario(any(UUID.class))).thenReturn(
+        Optional.of(false));
     when(financeiroRepository.save(any(FinanceiroModel.class))).thenReturn(financeiro);
 
-    BaseDto<FinanceiroDto> responseEntity = (BaseDto<FinanceiroDto>)
+    BaseDto<FinanceiroResponseDto> responseEntity = (BaseDto<FinanceiroResponseDto>)
         financeiroService.criarFinanceiro(dtoFinanceiro).getBody();
 
     assertEquals(HttpStatus.BAD_REQUEST.value(), responseEntity.getResultado().getStatus());
