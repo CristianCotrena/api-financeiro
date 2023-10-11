@@ -1,7 +1,7 @@
 package com.api.apifinanceiro.controllers.v1;
 
 import com.api.apifinanceiro.base.dtos.BaseDto;
-import com.api.apifinanceiro.entities.dtos.FinanceiroCriarDto;
+import com.api.apifinanceiro.entities.dtos.FinanceiroRequestDto;
 import com.api.apifinanceiro.services.v1.FinanceiroService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -42,7 +42,7 @@ public class FinanceiroController {
       description = "Erro interno")
   @PostMapping
   public ResponseEntity<BaseDto> criarFinanceiro(
-      @RequestBody FinanceiroCriarDto novoFinanceiroDto
+      @RequestBody FinanceiroRequestDto novoFinanceiroDto
   ) {
     return financeiroService.criarFinanceiro(novoFinanceiroDto);
   }

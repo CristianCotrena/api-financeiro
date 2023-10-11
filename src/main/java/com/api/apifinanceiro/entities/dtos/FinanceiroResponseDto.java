@@ -2,12 +2,12 @@ package com.api.apifinanceiro.entities.dtos;
 
 import java.io.Serializable;
 
-public class FinanceiroDto implements Serializable {
+public class FinanceiroResponseDto implements Serializable {
 
   private static final long serialVersionUID = 1L;
   private String id;
 
-  public FinanceiroDto(
+  public FinanceiroResponseDto(
       String id
   ) {
     this.id = id;
